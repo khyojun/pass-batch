@@ -1,0 +1,17 @@
+version: '3.8' # docker compose 파일 버전
+
+services:
+  mysql: # 서비스 이름 정의
+    container_name: mysql_local
+    image: mysql:8.0.30
+    volumes: # 생명주기 상관없이 살리고 있는게 volume
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/initdb.d:/docker-entrypoint-initdb.d # 컨테이너가 실행되면 알파벳 순으로 생성이됨.
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=pass_local
+      - MYSQL_USER=pass_local_user
+      - MYSQL_PASSWORD=passlocal123
+      - MYSQL_ROOT_PASSWORD=passlocal123
+      - TZ=Asia/Seoul
