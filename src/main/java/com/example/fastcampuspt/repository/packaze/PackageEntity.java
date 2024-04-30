@@ -1,6 +1,7 @@
 package com.example.fastcampuspt.repository.packaze;
 
 
+import com.example.fastcampuspt.repository.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "package")
-public class PackageEntity {
+public class PackageEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer packageSeq;
